@@ -1,0 +1,15 @@
+<!-- invite_user.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Invite User</title>
+</head>
+<body>
+    <h1>Invite User to Edit</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Invite</button>
+    </form>
+</body>
+</html>

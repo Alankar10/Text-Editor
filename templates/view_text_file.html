@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editor</title>
+</head>
+<body>
+    <h2>{{ file_name }}</h2>
+    <p>{{ file_content }}</p>
+    <a href="{% url 'edit_text_file' filename=filename %}">Edit Text File</a>
+    <a href="{% url 'delete_text_file' filename=filename %}">Delete Text File</a>
+<script>
+    var socket = new WebSocket("ws://" + window.location.host + "/ws/Editor/");
+
+    socket.onmessage = function(e) {
+        var data = JSON.parse(e.data);
+        console.log(data.message);
+        // Update your UI or handle the real-time updates
+    };
+
+    // Handle socket.onopen, socket.onclose, etc.
+</script>
+</body>
+</html>

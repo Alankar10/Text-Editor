@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editor</title>
+</head>
+<body>
+    <h2>View Text Files</h2>
+    <ul>
+        {% for filename in files %}
+            {% with file_name=filename|slice:'user_created_file_'|slice:'_0' %}
+    <li>
+        <a href="{% url 'view_text_file' filename=filename %}">{{ file_name }}</a>
+        - <a href="{% url 'edit_text_file' filename=filename %}">Edit</a>
+        - <a href="{% url 'delete_text_file' filename=filename %}">Delete</a>
+    </li>
+{% endwith %}
+        {% endfor %}
+    </ul>
+    <button type="submit"><a href="/create_text_file">New</a></button>
+<button type="submit"><a href="/signout">SignOut</a> </button>
+</body>
+</html>

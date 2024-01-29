@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editor</title>
+</head>
+<body>
+    <h2>Edit Text File</h2>
+    <form method="post" action="{% url 'save_text_file' filename=filename %}">
+        {% csrf_token %}
+        <textarea name="file_content" rows="10" cols="50">{{ file_content }}</textarea>
+        <br>
+        <button type="submit"><a href="/view_text_files">Save Changes</a></button>
+    </form>
+</body>
+</html>

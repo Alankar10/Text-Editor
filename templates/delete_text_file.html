@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editor</title>
+</head>
+<body>
+    <h2>Delete Text File</h2>
+    <p>Are you sure you want to delete "{{ filename }}"?</p>
+    <form method="post" action="{% url 'delete_text_file' filename=filename %}">
+        {% csrf_token %}
+        <button type="submit">Yes, Delete</button>
+    </form>
+    <a href="{% url 'view_text_file' filename=filename %}">Cancel</a>
+</body>
+</html>
